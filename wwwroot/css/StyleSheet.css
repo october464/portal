@@ -1,0 +1,15 @@
+﻿.content {
+    width: 50%;
+    flex-grow: 8;
+    margin-top: 180px;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.btn-light {
+    border-color: transparent;
+}
+
+.apexcharts-canvas {
+    margin: 0 auto;
+}

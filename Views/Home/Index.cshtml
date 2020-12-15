@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+@*for leave button
+@if (User.IsInRole(nameof(PortalRole.Member)) || User.IsInRole(nameof(PortalRole.HOH)) && Model.Members.Count == 1)
+{
+    <li>
+        <a class="nav-link btn btn-sm btn-danger" asp-action="Leave">Leave Houosehold</a>
+    </li>
+}*@
+
+@section scripts{
+   <script>
+       var errorMessage = '@TempData["Messagee"]';
+       if (errorMessage != "") {
+           Swal.fire({
+               icon: 'error',
+               title: 'Oops....',
+               title,
+
+           })
+       }
+   </script>
+ }

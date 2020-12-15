@@ -1,0 +1,123 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>Save 'N Money - Login Page</title>
+    <link rel="icon" type="image/x-icon" />
+    <link href="~/css/Loader/loader.css" rel="stylesheet" type="text/css" />
+    <script src="~/js/Loader/js/loader.js"></script>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet">
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/plugins.css" rel="stylesheet" />
+    
+    @*<link href="~/css/form-1.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/css/form-2.css" rel="stylesheet" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <link href="~/css/theme-checkbox-radio.css" rel="stylesheet" />
+    <link href="~/css/switches.css" rel="stylesheet" />
+    <style>
+            .form-content {
+                background: #060818 !important;
+            }
+
+            .form-container {
+                background: #343a40 !important;
+            }
+
+            .form-control {
+                background-color: #6c757d !important;
+            }
+
+            .color {
+                color: aliceblue;
+            }
+        </style>
+</head>
+<body class="form">
+    <!-- BEGIN LOADER -->
+    <div id="load_screen">
+        <div class="loader">
+            <div class="loader-content">
+                <div class="spinner-grow align-self-center"></div>
+            </div>
+        </div>
+    </div>
+    <!--  END LOADER -->
+    <div class="form-container outer">
+        <div class="form-form">
+            <div class="form-form-wrap">
+                <div class="form-container">
+                    <div class="form-content">
+
+                        <h1>@ViewData["Title"]</h1>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <section>
+                                    <form id="account" method="post">
+                                       
+                                        <hr />
+                                        <div asp-validation-summary="All" class="text-danger"></div>
+                                        <div class="form-group">
+                                            <label asp-for="Input.Email"></label>
+                                            <input asp-for="Input.Email" class="form-control" />
+                                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Input.Password"></label>
+                                            <input asp-for="Input.Password" class="form-control" />
+                                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label asp-for="Input.RememberMe">
+                                                    <input asp-for="Input.RememberMe" />
+                                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Log in</button>
+                                        </div>
+                                        <div class="form-group">
+                                            <p>
+                                                <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                                            </p>
+                                            <p>
+                                                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                                            </p>
+                                        </div>
+                                    </form>
+                                </section>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+    <script src="~/js/form-2.js"></script>
+    <script>
+        var loaderElement = document.querySelector('#load_screen');
+        setTimeout(function () {
+            loaderElement.style.display = "none";
+        }, 3000);
+    </script>
+</body>
+</html>

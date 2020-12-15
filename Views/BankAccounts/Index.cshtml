@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Finportal.Models.BankAccount>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="card-977263">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" data-parent="#card-977263" href="#card-element-247619">All Bank Accounts</a>
+                    </div>
+                    <div id="card-element-247619" class="collapse show">
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+
+                                        <th>
+                                            Your Bank
+                                        </th>
+
+                                        <th>
+                                            Account Type
+                                        </th>
+                                        <th>
+                                            Starting Balance
+                                        </th>
+                                        <th>
+                                            Current Balance
+                                        </th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Type)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.StartingBalance)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CurrentBalance)
+                                            </td>
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

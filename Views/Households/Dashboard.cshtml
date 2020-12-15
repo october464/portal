@@ -1,0 +1,87 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Finportal.Enum
+@model Finportal.Models.Household
+@inject UserManager<FPUser> UserManager
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>Dashboard</h1>
+
+@*for leave button*@
+@if (User.IsInRole(nameof(PortalRole.Member)) || User.IsInRole(nameof(PortalRole.HOH)) && Model.Members.Count == 1)
+    {
+        <li>
+            <a class="nav-link btn btn-sm btn-danger" asp-action="Leave">Leave Houosehold</a>
+        </li>
+    }
+
+<!--Modal-->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#invitation">
+    Send Invitation
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="invitation" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <form asp-controller="Invitation" asp-action="Create">
+                            
+                            <div class="form-group">
+
+                                <label class="control-label"  ></label>
+
+                                <input name="FirstName" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"></label>
+                                <input name="LastName" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"></label>
+                                <input name="Expires" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label"></label>
+                                <input name="EmailTo" class="form-control" required/>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"></label>
+                                <input name="Subject" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"></label>
+                                <input name="Body" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"></label>
+                                @*<select asp-for="RoleName" asp-items="Html.GetEnumSelectList<PortalRole>()" class="form-control" ></select>*@
+                            </div>
+
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Send</button>
+                        <button type="button" class="btn btn-secondary" onclick="clearForm()">Reset</button>
+
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

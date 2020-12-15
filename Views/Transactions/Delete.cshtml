@@ -1,0 +1,78 @@
+﻿@model Finportal.Models.Transaction
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="card-977263">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" data-parent="#card-977263" href="#card-element-247619">Delete Your Transaction</a>
+                    </div>
+                    <div id="card-element-247619" class="collapse show">
+                        <div class="card-body">
+                            <div class="container">
+                                <div class="card-body">
+                                    <div>
+                                        <dl class="row">
+                                            <dt class="col-sm-2">
+                                                @Html.DisplayNameFor(model => model.Created)
+                                            </dt>
+                                            <dd class="col-sm-10">
+                                                @Html.DisplayFor(model => model.Created)
+                                            </dd>
+                                            <dt class="col-sm-2">
+                                                @Html.DisplayNameFor(model => model.Type)
+                                            </dt>
+                                            <dd class="col-sm-10">
+                                                @Html.DisplayFor(model => model.Type)
+                                            </dd>
+                                            <dt class="col-sm-2">
+                                                @Html.DisplayNameFor(model => model.Memo)
+                                            </dt>
+                                            <dd class="col-sm-10">
+                                                @Html.DisplayFor(model => model.Memo)
+                                            </dd>
+                                            <dt class="col-sm-2">
+                                                @Html.DisplayNameFor(model => model.Amount)
+                                            </dt>
+                                            <dd class="col-sm-10">
+                                                @Html.DisplayFor(model => model.Amount)
+                                            </dd>
+
+                                            <dt class="col-sm-2">
+                                                Category Item
+                                            </dt>
+                                            <dd class="col-sm-10">
+                                                @Html.DisplayFor(model => model.CategoryItem.Name)
+                                            </dd>
+                                            <dt class="col-sm-2">
+                                                Bank Account
+                                            </dt>
+                                            <dd class="col-sm-10">
+                                                @Html.DisplayFor(model => model.BankAccount.Name)
+                                            </dd>
+                                            <dt class="col-sm-2">
+                                                @Html.DisplayNameFor(model => model.FPUser)
+                                            </dt>
+                                            <dd class="col-sm-10">
+                                                @Html.DisplayFor(model => model.FPUser.FullName)
+                                            </dd>
+                                        </dl>
+                                        <form asp-action="Delete">
+                                            <input type="hidden" asp-for="Id" />
+                                            <input type="submit" value="Delete" class="btn btn-danger" /> |
+                                            <a asp-action="Index">Back to List</a>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

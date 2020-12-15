@@ -1,0 +1,282 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-Finportal-CB4EFD73-015A-4DDC-8403-F59AF891CC80</UserSecretsId>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\alert.css" />
+    <Content Remove="wwwroot\css\apex\apexcharts.css" />
+    <Content Remove="wwwroot\css\apex\apexcharts.min.js" />
+    <Content Remove="wwwroot\css\apex\custom-apexcharts.js" />
+    <Content Remove="wwwroot\css\bootstrap.min.css" />
+    <Content Remove="wwwroot\css\dash_2.css" />
+    <Content Remove="wwwroot\css\plugins.css" />
+    <Content Remove="wwwroot\css\site.css" />
+    <Content Remove="wwwroot\css\structure.css" />
+    <Content Remove="wwwroot\css\Table\buttons.html5.min.js" />
+    <Content Remove="wwwroot\css\Table\buttons.print.min.js" />
+    <Content Remove="wwwroot\css\Table\custom_dt_html5.css" />
+    <Content Remove="wwwroot\css\Table\dataTables.buttons.min.js" />
+    <Content Remove="wwwroot\css\Table\datatables.css" />
+    <Content Remove="wwwroot\css\Table\datatables.js" />
+    <Content Remove="wwwroot\css\Table\dt-global_style-dark.css" />
+    <Content Remove="wwwroot\css\Table\jszip.min.js" />
+    <Content Remove="wwwroot\js\app.js" />
+    <Content Remove="wwwroot\js\bootstrap.js" />
+    <Content Remove="wwwroot\js\bootstrap.min.js" />
+    <Content Remove="wwwroot\js\custom.js" />
+    <Content Remove="wwwroot\js\dash_2.js" />
+    <Content Remove="wwwroot\js\jquery-3.1.1.min.js" />
+    <Content Remove="wwwroot\js\Loader\js\loader.js" />
+    <Content Remove="wwwroot\css\Loader\loader.css" />
+    <Content Remove="wwwroot\js\popper.min.js" />
+    <Content Remove="wwwroot\js\site.js" />
+    <Content Remove="wwwroot\plugins\highlight\highlight.pack.js" />
+    <Content Remove="wwwroot\plugins\highlight\styles\a11y-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\a11y-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\agate.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\an-old-hope.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\androidstudio.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\arduino-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\arta.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\ascetic.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-cave-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-cave-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-dune-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-dune-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-estuary-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-estuary-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-forest-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-forest-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-heath-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-heath-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-lakeside-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-lakeside-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-plateau-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-plateau-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-savanna-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-savanna-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-seaside-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-seaside-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-sulphurpool-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atelier-sulphurpool-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atom-one-dark-reasonable.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atom-one-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\atom-one-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\brown-paper.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\brown-papersq.png" />
+    <Content Remove="wwwroot\plugins\highlight\styles\codepen-embed.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\color-brewer.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\darcula.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\darkula.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\default.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\docco.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\dracula.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\far.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\foundation.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\github-gist.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\github.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\gml.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\googlecode.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\grayscale.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\gruvbox-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\gruvbox-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\hopscotch.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\hybrid.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\idea.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\ir-black.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\isbl-editor-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\isbl-editor-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\kimbie.dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\kimbie.light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\lightfair.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\magula.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\mono-blue.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\monokai-sublime.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\monokai.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\nord.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\obsidian.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\ocean.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\paraiso-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\paraiso-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\pojoaque.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\pojoaque.jpg" />
+    <Content Remove="wwwroot\plugins\highlight\styles\purebasic.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\qtcreator_dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\qtcreator_light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\railscasts.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\rainbow.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\routeros.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\school-book.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\school-book.png" />
+    <Content Remove="wwwroot\plugins\highlight\styles\shades-of-purple.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\solarized-dark.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\solarized-light.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\sunburst.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\tomorrow-night-blue.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\tomorrow-night-bright.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\tomorrow-night-eighties.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\tomorrow-night.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\tomorrow.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\vs.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\vs2015.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\xcode.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\xt256.css" />
+    <Content Remove="wwwroot\plugins\highlight\styles\zenburn.css" />
+    <Content Remove="wwwroot\plugins\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Remove="wwwroot\plugins\perfect-scrollbar\perfect-scrollbar.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.10.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="MimeKit" Version="2.10.0" />
+    <PackageReference Include="Npgsql" Version="4.1.6" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\alert.css" />
+    <None Include="wwwroot\css\apex\apexcharts.css" />
+    <None Include="wwwroot\css\apex\js\apexcharts.min.js" />
+    <None Include="wwwroot\css\apex\js\custom-apexcharts.js" />
+    <None Include="wwwroot\css\bootstrap.min.css" />
+    <None Include="wwwroot\css\dash_2.css" />
+    <None Include="wwwroot\css\plugins.css" />
+    <None Include="wwwroot\css\structure.css" />
+    <None Include="wwwroot\css\Table\buttons.html5.min.js" />
+    <None Include="wwwroot\css\Table\buttons.print.min.js" />
+    <None Include="wwwroot\css\Table\custom_dt_html5.css" />
+    <None Include="wwwroot\css\Table\dataTables.buttons.min.js" />
+    <None Include="wwwroot\css\Table\datatables.css" />
+    <None Include="wwwroot\css\Table\datatables.js" />
+    <None Include="wwwroot\css\Table\dt-global_style-dark.css" />
+    <None Include="wwwroot\css\Table\jszip.min.js" />
+    <None Include="wwwroot\js\app.js" />
+    <None Include="wwwroot\js\bootstrap.js" />
+    <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\js\custom.js" />
+    <None Include="wwwroot\js\dash_2.js" />
+    <None Include="wwwroot\js\jquery-3.1.1.min.js" />
+    <None Include="wwwroot\js\Loader\js\loader.js" />
+    <None Include="wwwroot\css\Loader\loader.css" />
+    <None Include="wwwroot\js\popper.min.js" />
+    <None Include="wwwroot\plugins\highlight\highlight.pack.js" />
+    <None Include="wwwroot\plugins\highlight\styles\a11y-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\a11y-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\agate.css" />
+    <None Include="wwwroot\plugins\highlight\styles\an-old-hope.css" />
+    <None Include="wwwroot\plugins\highlight\styles\androidstudio.css" />
+    <None Include="wwwroot\plugins\highlight\styles\arduino-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\arta.css" />
+    <None Include="wwwroot\plugins\highlight\styles\ascetic.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-cave-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-cave-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-dune-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-dune-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-estuary-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-estuary-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-forest-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-forest-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-heath-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-heath-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-lakeside-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-lakeside-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-plateau-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-plateau-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-savanna-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-savanna-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-seaside-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-seaside-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-sulphurpool-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atelier-sulphurpool-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atom-one-dark-reasonable.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atom-one-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\atom-one-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\brown-paper.css" />
+    <None Include="wwwroot\plugins\highlight\styles\brown-papersq.png" />
+    <None Include="wwwroot\plugins\highlight\styles\codepen-embed.css" />
+    <None Include="wwwroot\plugins\highlight\styles\color-brewer.css" />
+    <None Include="wwwroot\plugins\highlight\styles\darcula.css" />
+    <None Include="wwwroot\plugins\highlight\styles\dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\darkula.css" />
+    <None Include="wwwroot\plugins\highlight\styles\default.css" />
+    <None Include="wwwroot\plugins\highlight\styles\docco.css" />
+    <None Include="wwwroot\plugins\highlight\styles\dracula.css" />
+    <None Include="wwwroot\plugins\highlight\styles\far.css" />
+    <None Include="wwwroot\plugins\highlight\styles\foundation.css" />
+    <None Include="wwwroot\plugins\highlight\styles\github-gist.css" />
+    <None Include="wwwroot\plugins\highlight\styles\github.css" />
+    <None Include="wwwroot\plugins\highlight\styles\gml.css" />
+    <None Include="wwwroot\plugins\highlight\styles\googlecode.css" />
+    <None Include="wwwroot\plugins\highlight\styles\grayscale.css" />
+    <None Include="wwwroot\plugins\highlight\styles\gruvbox-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\gruvbox-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\hopscotch.css" />
+    <None Include="wwwroot\plugins\highlight\styles\hybrid.css" />
+    <None Include="wwwroot\plugins\highlight\styles\idea.css" />
+    <None Include="wwwroot\plugins\highlight\styles\ir-black.css" />
+    <None Include="wwwroot\plugins\highlight\styles\isbl-editor-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\isbl-editor-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\kimbie.dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\kimbie.light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\lightfair.css" />
+    <None Include="wwwroot\plugins\highlight\styles\magula.css" />
+    <None Include="wwwroot\plugins\highlight\styles\mono-blue.css" />
+    <None Include="wwwroot\plugins\highlight\styles\monokai-sublime.css" />
+    <None Include="wwwroot\plugins\highlight\styles\monokai.css" />
+    <None Include="wwwroot\plugins\highlight\styles\nord.css" />
+    <None Include="wwwroot\plugins\highlight\styles\obsidian.css" />
+    <None Include="wwwroot\plugins\highlight\styles\ocean.css" />
+    <None Include="wwwroot\plugins\highlight\styles\paraiso-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\paraiso-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\pojoaque.css" />
+    <None Include="wwwroot\plugins\highlight\styles\pojoaque.jpg" />
+    <None Include="wwwroot\plugins\highlight\styles\purebasic.css" />
+    <None Include="wwwroot\plugins\highlight\styles\qtcreator_dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\qtcreator_light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\railscasts.css" />
+    <None Include="wwwroot\plugins\highlight\styles\rainbow.css" />
+    <None Include="wwwroot\plugins\highlight\styles\routeros.css" />
+    <None Include="wwwroot\plugins\highlight\styles\school-book.css" />
+    <None Include="wwwroot\plugins\highlight\styles\school-book.png" />
+    <None Include="wwwroot\plugins\highlight\styles\shades-of-purple.css" />
+    <None Include="wwwroot\plugins\highlight\styles\solarized-dark.css" />
+    <None Include="wwwroot\plugins\highlight\styles\solarized-light.css" />
+    <None Include="wwwroot\plugins\highlight\styles\sunburst.css" />
+    <None Include="wwwroot\plugins\highlight\styles\tomorrow-night-blue.css" />
+    <None Include="wwwroot\plugins\highlight\styles\tomorrow-night-bright.css" />
+    <None Include="wwwroot\plugins\highlight\styles\tomorrow-night-eighties.css" />
+    <None Include="wwwroot\plugins\highlight\styles\tomorrow-night.css" />
+    <None Include="wwwroot\plugins\highlight\styles\tomorrow.css" />
+    <None Include="wwwroot\plugins\highlight\styles\vs.css" />
+    <None Include="wwwroot\plugins\highlight\styles\vs2015.css" />
+    <None Include="wwwroot\plugins\highlight\styles\xcode.css" />
+    <None Include="wwwroot\plugins\highlight\styles\xt256.css" />
+    <None Include="wwwroot\plugins\highlight\styles\zenburn.css" />
+    <None Include="wwwroot\plugins\perfect-scrollbar\perfect-scrollbar.css" />
+    <None Include="wwwroot\plugins\perfect-scrollbar\perfect-scrollbar.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+</Project>

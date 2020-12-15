@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<FPUser> UserManager
+@{
+    ViewData["Title"] = "Lobby";
+    var userId = await UserManager.GetUserAsync(User);
+}
+
+
+
+
+
+    <div class="container ">
+        <div class="card text-center">
+            <div class="card-header">
+                Welcome to Save `N Money
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Welcome @userId.FullName</h5>
+                <p class="card-text">Please choose to go to house hold or create one.</p>
+                <br />
+                <div class="row">
+                    <div class="col">
+                        <a class="btn btn-sm btn-info" asp-controller="Households" asp-action="Create">Create a House Hold</a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-sm btn-success" asp-area="" asp-controller="Households" asp-action="Details" asp-route-id="@((await UserManager.GetUserAsync(User)).HouseholdId)">Go to your Household</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
