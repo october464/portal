@@ -8,15 +8,15 @@ namespace Finportal.Models.Charts
     public class ChartModel
     {
       
-        public decimal Values { get; set; }
-        public string Labels { get; set; }
+        public string Label { get; set; }
+        public decimal  Value { get; set; }
 
 
     }
 
     public class CategoryChartModel
     {
-        public decimal CategoryTransaction { get; set; }
-        public string CategoryName { get; set; }
+        public string CatLabel { get; set; }
+        public decimal CatValue { get; set; }
     }
 }

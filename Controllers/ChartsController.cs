@@ -25,8 +25,8 @@ namespace Finportal.Controllers
             {
                 result.Add(new ChartModel
                 {
-                    Values = bank.StartingBalance,
-                    Labels = bank.Name,
+                    Label = bank.Name,
+                    Value = bank.CurrentBalance,
                 });
             }
             return Json(result);
@@ -41,8 +41,7 @@ namespace Finportal.Controllers
         //    {
         //        result.Add(new CategoryChartModel
         //        {
-        //            CategoryTransaction = cat.Transactions,
-        //            CategoryName = cat.CategoryItems,
+                    
         //        });
         //    }
         //    return Json(result);

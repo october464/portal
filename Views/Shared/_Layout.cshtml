@@ -4,8 +4,8 @@
     var userId = await UserManager.GetUserAsync(User);
     <!--OverDraft Message-->
     var message = (string)TempData["OverDraft"];
-        
-   
+
+
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -52,67 +52,52 @@
     </div>
     <!--  END LOADER -->
     <!--Begin Top Nav-->
-    <div class="header-container fixed-top">
-        <header class="header navbar navbar-expand-sm">
-            <ul class="navbar-item flex-row">
-                <li class="">
-                    <i class="fas fa-wallet"></i>
-                </li>
-            </ul>
-
-            @*<a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></a>*@
-
-        <ul list-unstyled menu-categories" id="topAccordion">
-            <li class="menu single-menu active">
-                <a href="#dashboard" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle autodroprown">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                        <span>Dashboard</span>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </a>
-                <ul class="collapse submenu list-unstyled" id="dashboard" data-parent="#topAccordion">
-                    <li class="active">
-                        <a href="index.html"> Analytics </a>
-                    </li>
-                    <li>
-                        <a href="index2.html"> Sales </a>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="header-container fixed-top">
+            <header class="header navbar navbar-expand-sm">
+                <ul class="navbar-item flex-row">
+                    <li class="">
+                        <i class="fas fa-wallet"></i>
                     </li>
                 </ul>
-            </li>
-            @*<ul class="navbar-item flex-row navbar-dropdown">*@
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Households" asp-action="Details" asp-route-id="@((await UserManager.GetUserAsync(User)).HouseholdId)">Save 'N Money</a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Households" asp-action="Details" asp-route-id="@((await UserManager.GetUserAsync(User)).HouseholdId)">Household</a>
-                            </li>
-                        }
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Invitations" asp-action="Create">Invitations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="BankAccounts" asp-action="Index">Bank Account</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Transactions" asp-action="Create">Transaction</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
+                @*<a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></a>*@
 
-        </ul>
-        </header>
-    </div>
+
+                <ul class="navbar-item flex-row navbar-dropdown">
+                    <div class="container">
+                        <a class="navbar-brand" asp-area="" asp-controller="Households" asp-action="Details" asp-route-id="@((await UserManager.GetUserAsync(User)).HouseholdId)">Save 'N Money</a>
+
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                            <ul class="navbar-nav flex-grow-1">
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Households" asp-action="Details" asp-route-id="@((await UserManager.GetUserAsync(User)).HouseholdId)">Household</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Invitations" asp-action="Create">Invitations</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="BankAccounts" asp-action="Index">Bank Account</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Transactions" asp-action="Create">Transaction</a>
+                                </li>
+                            </ul>
+                            <partial name="_LoginPartial" />
+                        </div>
+                    </div>
+
+                </ul>
+            </header>
+        </div>
+    }
 
     <!--End Top Nav-->
     <!--Begin Side Nav-->
@@ -157,7 +142,6 @@
 
     <script src="~/js/ToolTip/tooltip.js"></script>
     <!--Chart-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
@@ -203,7 +187,7 @@
                  });
             </script>
         }*@
-    
+
     <!-- END GLOBAL MANDATORY SCRIPTS -->
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     @*<script src="~/js/dash_2.js"></script>*@

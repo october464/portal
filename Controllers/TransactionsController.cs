@@ -72,37 +72,37 @@ namespace Finportal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CategoryItemId,BankAccountId,Created,Type,Memo,Amount")] Transaction transaction)
         {
-          
-           
+
+
             if (ModelState.IsValid)
             {
-                    transaction.FPUserId =  _userManager.GetUserId(User);
-                    _context.Add(transaction);
-                    await _context.SaveChangesAsync();
-                    //1:Decrease the Bank Current Balance
-                    var account = await _context.BankAccount.FindAsync(transaction.BankAccountId);
-                    var oldBalance = account.CurrentBalance;
-             
+                transaction.FPUserId = _userManager.GetUserId(User);
+                _context.Add(transaction);
+                await _context.SaveChangesAsync();
+                //1:Decrease the Bank Current Balance
+                var account = await _context.BankAccount.FindAsync(transaction.BankAccountId);
+                var oldBalance = account.CurrentBalance;
+
                 if (transaction.Type == Enum.TransactionType.Deposit)
                 {
-                        account.CurrentBalance += transaction.Amount;
+                    account.CurrentBalance += transaction.Amount;
                 }
-                    else
-                    {
-                        //Withdrawl
-                        account.CurrentBalance -= transaction.Amount;
-                        //2:Increase the Actual Amount of the associated Category Item
-                        var categoryItem = await _context.CategoryItem.FindAsync(transaction.CategoryItemId);
-                        categoryItem.ActualAmount += transaction.Amount;
-                    }
-                    await _context.SaveChangesAsync();
+                else
+                {
+                    //Withdrawl
+                    account.CurrentBalance -= transaction.Amount;
+                    //2:Increase the Actual Amount of the associated Category Item
+                    var categoryItem = await _context.CategoryItem.FindAsync(transaction.CategoryItemId);
+                    categoryItem.ActualAmount += transaction.Amount;
+                }
+                await _context.SaveChangesAsync();
                 //3:Look for any needed notifications
-                if (account.CurrentBalance < 0 )
+                if (account.CurrentBalance < 0)
                 {
                     TempData["OverDraft"] = "you overdrft your account. FOO";
                 }
-                    await _notificationService.NotifyOverdraftAsync(transaction, account, oldBalance);
-                    return RedirectToAction("Details", "Households", new { id = (await _userManager.GetUserAsync(User)).HouseholdId });
+                await _notificationService.NotifyOverdraftAsync(transaction, account, oldBalance);
+                return RedirectToAction("Details", "Households", new { id = (await _userManager.GetUserAsync(User)).HouseholdId });
 
             }
             ViewData["BankAccountId"] = new SelectList(_context.BankAccount, "Id", "Name", transaction.BankAccountId);
@@ -146,7 +146,24 @@ namespace Finportal.Controllers
             {
                 try
                 {
+                    var oldTransaction = _context.Transaction.AsNoTracking().FirstOrDefault(t => t.Id == transaction.Id);
+
                     _context.Update(transaction);
+                  
+                    var bankAccount = _context.BankAccount.Find(transaction.BankAccountId);
+                    if (oldTransaction.Amount > transaction.Amount)
+                    {
+                        var result = oldTransaction.Amount - transaction.Amount;
+                        bankAccount.CurrentBalance += result;
+                        _context.Update(bankAccount);
+                    }
+                    else
+                    {
+                        var result = oldTransaction.Amount - transaction.Amount;
+
+                        bankAccount.CurrentBalance += result;
+                        _context.Update(bankAccount);
+                    }
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -182,6 +199,7 @@ namespace Finportal.Controllers
                 .Include(t => t.FPUser)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
+
             var account = await _context.BankAccount.Include(t => t.Household).FirstOrDefaultAsync(t => t.Id == transaction.BankAccountId);
 
             account.CurrentBalance += transaction.Amount;
@@ -203,7 +221,7 @@ namespace Finportal.Controllers
             var account = await _context.BankAccount.Include(t => t.Household).FirstOrDefaultAsync(t => t.Id == transaction.BankAccountId);
 
             account.CurrentBalance += transaction.Amount;
-            
+
             _context.Transaction.Remove(transaction);
 
             await _context.SaveChangesAsync();
