@@ -35,6 +35,9 @@
     <!--Chart-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 
+
+
+
     <link href="~/css/alert.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="sidebar-noneoverflow ">
@@ -52,7 +55,6 @@
         <header class="header navbar navbar-expand-sm">
             <ul class="navbar-item flex-row">
                 <li class="">
-                    @*<p class="color">Fin-Portal</p>*@
                     <i class="fas fa-wallet"></i>
                 </li>
             </ul>
@@ -62,7 +64,8 @@
 
             <ul class="navbar-item flex-row navbar-dropdown">
                 <div class="container">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Finportal</a>
+                    <a class="navbar-brand" asp-area="" asp-controller="Households" asp-action="Details" asp-route-id="@((await UserManager.GetUserAsync(User)).HouseholdId)">Save 'N Money</a>
+
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -134,11 +137,10 @@
             });
         </script>*@
 
-   
+
+    <!--Chart-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-   
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-  
     <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
     <script src="~/css/Table/datatables.js"></script>

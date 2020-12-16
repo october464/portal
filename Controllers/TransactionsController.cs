@@ -182,7 +182,10 @@ namespace Finportal.Controllers
                 .Include(t => t.FPUser)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-             if (transaction == null)
+            var account = await _context.BankAccount.Include(t => t.Household).FirstOrDefaultAsync(t => t.Id == transaction.BankAccountId);
+
+            account.CurrentBalance += transaction.Amount;
+            if (transaction == null)
             {
                 return NotFound();
             }
