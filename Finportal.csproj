@@ -26,6 +26,7 @@
     <Content Remove="wwwroot\css\Table\datatables.js" />
     <Content Remove="wwwroot\css\Table\dt-global_style-dark.css" />
     <Content Remove="wwwroot\css\Table\jszip.min.js" />
+    <Content Remove="wwwroot\css\ToolTip\tooltip.css" />
     <Content Remove="wwwroot\js\app.js" />
     <Content Remove="wwwroot\js\bootstrap.js" />
     <Content Remove="wwwroot\js\bootstrap.min.js" />
@@ -36,6 +37,7 @@
     <Content Remove="wwwroot\css\Loader\loader.css" />
     <Content Remove="wwwroot\js\popper.min.js" />
     <Content Remove="wwwroot\js\site.js" />
+    <Content Remove="wwwroot\js\ToolTip\tooltip.js" />
     <Content Remove="wwwroot\plugins\highlight\highlight.pack.js" />
     <Content Remove="wwwroot\plugins\highlight\styles\a11y-dark.css" />
     <Content Remove="wwwroot\plugins\highlight\styles\a11y-light.css" />
@@ -169,6 +171,7 @@
     <None Include="wwwroot\css\Table\datatables.js" />
     <None Include="wwwroot\css\Table\dt-global_style-dark.css" />
     <None Include="wwwroot\css\Table\jszip.min.js" />
+    <None Include="wwwroot\css\ToolTip\tooltip.css" />
     <None Include="wwwroot\js\app.js" />
     <None Include="wwwroot\js\bootstrap.js" />
     <None Include="wwwroot\js\bootstrap.min.js" />
@@ -178,6 +181,7 @@
     <None Include="wwwroot\js\Loader\js\loader.js" />
     <None Include="wwwroot\css\Loader\loader.css" />
     <None Include="wwwroot\js\popper.min.js" />
+    <None Include="wwwroot\js\ToolTip\tooltip.js" />
     <None Include="wwwroot\plugins\highlight\highlight.pack.js" />
     <None Include="wwwroot\plugins\highlight\styles\a11y-dark.css" />
     <None Include="wwwroot\plugins\highlight\styles\a11y-light.css" />

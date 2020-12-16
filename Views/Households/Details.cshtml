@@ -28,28 +28,27 @@
                 <div class="btn-group btn-group-md" role="group">
                     <!--Category-->
                     <div class="col-auto pr-0">
-                        @*<div class="col-sm">
-                            <a class="btn btn-outline-success btn-md modalButtons" data-target="#addCategoryModal" data-toggle="modal">Add Category</a>
-                        </div>*@
-                        <button type="button" class="btn btn-warning mb-2 rounded bs-tooltip" data-placement="bottom" data-target="#addCategoryModal" data-toggle="modal" title="AddCategory">
+                        <button type="button" class="btn btn-outline-success mb-2 rounded bs-tooltip" data-placement="bottom" data-target="#addCategoryModal" data-toggle="modal" title="Add Category">
                             Add Category
                         </button>
+                       
                     </div>
                    
                     <!--Bank Account Modal Button-->
                     <div class="col-auto pr-1">
-                        <div class="col-sm">
-                            <a data-target="#creatBankAccount" data-toggle="modal" class="btn btn-outline-success btn-md modalButtons">Add Bank Account</a>
-                        </div>
+                      
+                        <button type="button" class="btn btn-outline-success mb-2 rounded bs-tooltip" data-placement="left" data-target="#creatBankAccount" data-toggle="modal" title="Add Bank Account">
+                            Add Bank Account
+                        </button>
                     </div>
                     @if (User.IsInRole("HOH"))
                     {
 
                         <!--Send Invite Button-->
                         <div class="col-auto pr-2">
-                            <div class="col-sm">
-                                <a class="btn btn-outline-success btn-md modalButtons" data-target="#sendInvite" data-toggle="modal">Send Invitation</a>
-                            </div>
+                            <button type="button" class="btn btn-outline-success mb-2 rounded bs-tooltip" data-placement="top" data-target="#sendInvite" data-toggle="modal" title=" Send Invitation">
+                                Send Invitation
+                            </button>
                         </div>
                     }
                     <!--Leave Button-->
@@ -59,7 +58,7 @@
                                 @if (User.IsInRole("Memeber") || (User.IsInRole("HOH") && Model.Members.Count == 1))
                                 {
                                     <form asp-controller="Households" asp-action="Leave" method="post">
-                                        <input type="submit" class="btn btn-lg btn-danger" value="Leave Household" />
+                                        <input href="javascript:void(0);" type="submit" class="btn btn-lg btn-danger bs-tooltip" data-placement="top" value="Leave Household" title="Leave Household"/>
                                     </form>
                                 }
                                 else
