@@ -41,7 +41,7 @@
 
     <link href="~/css/alert.css" rel="stylesheet" type="text/css" />
 </head>
-<body class="sidebar-noneoverflow ">
+<body class="sidebar-noneoverflow background ">
     <!-- BEGIN LOADER -->
     <div id="load_screen">
         <div class="loader">
@@ -55,7 +55,7 @@
     @if (User.Identity.IsAuthenticated)
     {
         <div class="header-container fixed-top">
-            <header class="header navbar navbar-expand-sm">
+            <header class="header navbar navbar-expand-sm bg-dark">
                 <ul class="navbar-item flex-row">
                     <li class="">
                         <i class="fas fa-wallet"></i>
@@ -67,7 +67,7 @@
 
                 <ul class="navbar-item flex-row navbar-dropdown">
                     <div class="container">
-                        <a class="navbar-brand" asp-area="" asp-controller="Households" asp-action="Details" asp-route-id="@((await UserManager.GetUserAsync(User)).HouseholdId)">Save 'N Money</a>
+                        <a class="navbar-brand navtextcolor" asp-area="" asp-controller="Households" asp-action="Details" asp-route-id="@((await UserManager.GetUserAsync(User)).HouseholdId)">Save 'N Money</a>
 
 
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -78,16 +78,19 @@
                             <ul class="navbar-nav flex-grow-1">
 
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Households" asp-action="Details" asp-route-id="@((await UserManager.GetUserAsync(User)).HouseholdId)">Household</a>
+                                    <a class="nav-link navtextcolor" asp-area="" asp-controller="Households" asp-action="Details" asp-route-id="@((await UserManager.GetUserAsync(User)).HouseholdId)">Household</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Invitations" asp-action="Create">Invitations</a>
+                                    <a class="nav-link navtextcolor" asp-area="" asp-controller="Invitations" asp-action="Create">Invitations</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="BankAccounts" asp-action="Index">Bank Account</a>
+                                    <a class="nav-link navtextcolor" asp-area="" asp-controller="BankAccounts" asp-action="Index">Bank Account</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Transactions" asp-action="Create">Transaction</a>
+                                    <a class="nav-link navtextcolor" asp-area="" asp-controller="Transactions" asp-action="Create">Transaction</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a href="https://jonathanportfolio.netlify.app/" class="nav-link navtextcolor">Portfolio</a>
                                 </li>
                             </ul>
                             <partial name="_LoginPartial" />
@@ -123,9 +126,34 @@
         </div>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="bg-dark py-4">
         <div class="container">
-            &copy; 2020 - Finportal - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row py-2">
+                <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                    <p class="small text-muted text-uppercase mb-0">&copy; Jonathan Green - all rights reserved</p>
+                </div>
+                <div class="col-lg-6 text-center mb-2 mb-lg-0 ">
+                    <ul class="list-inline text-white small mb-0 footerIconGrowHover footerIconGrow">
+                        <li class="list-inline-item">
+                            <a class="reset-anchor" target="_blank" href="https://github.com/october464">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+
+                        <li class="list-inline-item footerIconGrowHover footerIconGrow">
+                            <a class="reset-anchor" target="_blank" href="https://www.linkedin.com/in/jonathan-green-854723164/">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </li>
+
+                        <li class="list-inline-item footerIconGrowHover footerIconGrow">
+                            <a class="reset-anchor" target="_blank" href="https://twitter.com/Jonatha20659564">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </footer>
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->

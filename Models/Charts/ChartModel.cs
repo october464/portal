@@ -14,9 +14,9 @@ namespace Finportal.Models.Charts
 
     }
 
-    public class CategoryChartModel
+    public class TransactionChartModel
     {
-        public string CatLabel { get; set; }
-        public decimal CatValue { get; set; }
+        public string TLabel { get; set; }
+        public decimal TValue { get; set; }
     }
 }

@@ -18,35 +18,28 @@
                     <div class="col-md" style="text-align:center;">
                         <h1>Welcome to the @Html.DisplayFor(model => model.Name) HouseHold</h1>
                     </div>
-                    @*<div class="col-md text-muted" style="text-align:center;">
-                    <h3>@Html.DisplayFor(model => model.Greeting)</h3>
-                    </div>*@
-                </div>  
+                </div>
             </div>
             <br />
             <div class="row">
                 <div class="btn-group btn-group-md" role="group">
                     <!--Category-->
                     <div class="col-auto pr-0">
-                        <button type="button" class="btn btn-outline-success mb-2 rounded bs-tooltip" data-placement="bottom" data-target="#addCategoryModal" data-toggle="modal" title="Add Category">
+                        <button type="button" class="btn btn-success mb-2 rounded bs-tooltip" data-placement="bottom" data-target="#addCategoryModal" data-toggle="modal" title="Add Category">
                             Add Category
                         </button>
-                       
                     </div>
-                   
                     <!--Bank Account Modal Button-->
                     <div class="col-auto pr-1">
-                      
-                        <button type="button" class="btn btn-outline-success mb-2 rounded bs-tooltip" data-placement="left" data-target="#creatBankAccount" data-toggle="modal" title="Add Bank Account">
+                        <button type="button" class="btn btn-success mb-2 rounded bs-tooltip" data-placement="left" data-target="#creatBankAccount" data-toggle="modal" title="Add Bank Account">
                             Add Bank Account
                         </button>
                     </div>
                     @if (User.IsInRole("HOH"))
                     {
-
                         <!--Send Invite Button-->
                         <div class="col-auto pr-2">
-                            <button type="button" class="btn btn-outline-success mb-2 rounded bs-tooltip" data-placement="top" data-target="#sendInvite" data-toggle="modal" title=" Send Invitation">
+                            <button type="button" class="btn btn-success mb-2 rounded bs-tooltip" data-placement="top" data-target="#sendInvite" data-toggle="modal" title=" Send Invitation">
                                 Send Invitation
                             </button>
                         </div>
@@ -58,7 +51,7 @@
                                 @if (User.IsInRole("Memeber") || (User.IsInRole("HOH") && Model.Members.Count == 1))
                                 {
                                     <form asp-controller="Households" asp-action="Leave" method="post">
-                                        <input href="javascript:void(0);" type="submit" class="btn btn-lg btn-danger bs-tooltip" data-placement="top" value="Leave Household" title="Leave Household"/>
+                                        <input type="submit" class="btn btn-lg btn-danger bs-tooltip" data-placement="top" value="Leave Household" title="Leave Household" />
                                     </form>
                                 }
                                 else
@@ -95,37 +88,86 @@
                     </div>
                 </div>
             </div>
-                <br />
+        </div>
+        <br />
+        <br />
+        <!--Bank Account Table-->
+        <div class="container-fluid">
+            <div class="row mt-md-3">
+                <div class="col-md widget p-3 mr-md-3 ml-md-3">
+                    <div id="card-527430">
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" data-parent="#card-527430" href="#card-element-659825"> <h3>Bank Accounts</h3></a>
+                            </div>
+                            <div id="card-element-659825" class="collapse show">
 
-                <br />
-                <!--Bank Account Table-->
-                <div class="container-fluid">
-                    <div class="row mt-md-3">
-                        <div class="col-md widget p-3 mr-md-3 ml-md-3">
-                            <div id="card-527430">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a class="card-link" data-toggle="collapse" data-parent="#card-527430" href="#card-element-659825"> <h3>Bank Accounts</h3></a>
-                                    </div>
-                                    <div id="card-element-659825" class="collapse show">
+                                <table class="table table-responsive-sm">
+                                    <thead>
+                                        <tr>
+                                            <td>Your Bank</td>
+                                            <td>Account Type</td>
+                                            <td>Starting Balance</td>
+                                            <td>Current Balance</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var account in Model.BankAccounts)
+                                        {
+                                            <tr>
+                                                <td>@account.Name</td>
+                                                <td>@account.Type</td>
+                                                <td>@account.StartingBalance</td>
+                                                <td>@account.CurrentBalance</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+
+                <!--Graph for budget and spending-->
+                <div class="col-md-4 widget p-3 mr-md-3">
+                    <div>
+                        <div class="text-center" style="color:black;"><b>Your Current Bank Account Balance</b></div>
+                        <div id="myDonutChart" style="height: 250px;"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br />
+        <!--House Members-->
+        <div class="container">
+            <div class="row mt-md-3">
+                <div class="col-md widget p-3 mr-md-3 ml-md-3">
+                    <div id="card-034725">
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" data-parent="#card-034725" href="#card-element-528956"> <h3>Members Of The House</h3></a>
+                            </div>
+                            <div id="card-element-528956" class="collapse show">
+                                <div class="row">
+                                    <div class="shadow col-md widget p-3 m-md-3">
                                         <table class="table table-responsive-sm">
                                             <thead>
                                                 <tr>
-                                                    <td>Your Bank</td>
-                                                    <td>Account Type</td>
-                                                    <td>Starting Balance</td>
-                                                    <td>Current Balance</td>
+                                                    <th>First Name</th>
+                                                    <th>Role</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach (var account in Model.BankAccounts)
+                                                @foreach (var user in Model.Members)
                                                 {
                                                     <tr>
-                                                        <td>@account.Name</td>
-                                                        <td>@account.Type</td>
-                                                        <td>@account.StartingBalance</td>
-                                                        <td>@account.CurrentBalance</td>
+                                                        <td>@user.FirstName</td>
+                                                        <td>
+                                                            @UserManager.GetRolesAsync(user).Result.FirstOrDefault()
+                                                        </td>
                                                     </tr>
                                                 }
                                             </tbody>
@@ -133,268 +175,219 @@
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                        <!--Graph for budget and spending-->
-                        <div class="col-md-4 widget p-3 mr-md-3">
-                            <div>
-                                <div id="myDonutChart" style="height: 250px;"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <br />
-                <!--For Donut Chart-->
-                <div class="row">
-                    <div class="shadow col-md widget p-3 m-md-3">
-                        <h4>Members of the house</h4>
-                        <table class="table table-responsive-sm">
-                            <thead>
-                                <tr>
-                                    <th>First Name</th>
-                                    <th>Role</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var user in Model.Members)
-                                {
-                                    <tr>
-                                        <td>@user.FirstName</td>
-                                        <td>
-                                            @UserManager.GetRolesAsync(user).Result.FirstOrDefault()
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-
-
-                    </div>
-                </div>
-                <div class="row">
-
-
-                    <br />
-                    <!--Categories-->
-
-                </div>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="shadow col-md widget p-3 m-md-3">
-                            <div id="card-977263">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a class="card-link" data-toggle="collapse" data-parent="#card-977263" href="#card-element-247619"><h6 class="m-0 font-weight-bold text-primary">Categories - Please Add Categories Before Adding Transactions</h6></a>
-                                    </div>
-                                    <div id="card-element-247619" class="collapse show">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                @foreach (var category in Model.Categories)
-                                                {
-                                                    <div class="col-3">
-                                                        <h5>@category.Name</h5>
-                                                        <p>@category.Description</p>
-                                                        <a class="btn btn-sm btn-primary" asp-controller="CategoryItems" asp-action="Create" asp-route-id="@category.Id"><i></i>Add Category Item</a>
-                                                        <ul>
-                                                            @foreach (var categoryItem in category.CategoryItems)
-                                                            {
-                                                                <li>
-                                                                    @categoryItem.Name
-                                                                </li>
-                                                                <li>@categoryItem.TargetAmount</li>
-                                                            }
-                                                        </ul>
-                                                    </div>
-                                                }
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <br />
-                <!--Transaction Type-->
-                <div class="row mt-md-3">
-                    <div class="col-md widget p-3 mr-md-3 ml-md-3">
-                        <h3>Transactions</h3>
-                        <table class="table table-responsive-sm">
-                            <thead>
-                                <tr>
-                                    <th>Memo</th>
-                                    @*<th>Date</th>*@
-                                    <th>Member</th>
-                                    <th>Amount</th>
-                                    <th>Category</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var transaction in Model.BankAccounts.SelectMany(b => b.Transactions))
-                                {
-                                    <tr>
-                                        <th>@transaction.Memo</th>
-                                        @*<th>@transaction.Created</th>*@
-                                        <th>@userId.FullName</th>
-                                        <th>@transaction.Amount</th>
-                                        <th>@transaction.CategoryItem.Name</th>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <hr />
-                <!--Modals-->
-                <!--Bank Account-->
-                <div class="modal fade" id="creatBankAccount">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Bank Account</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form asp-controller="BankAccounts" asp-action="Create" method="post">
-                                    <input type="hidden" name="HouseholdId" value="@Model.Id" />
-                                    <div class="form-group">
-                                        <label name="Name" class="control-label">Bank</label>
-                                        <input name="Name" class="form-control" required />
-                                    </div>
-                                    <div class="form-group">
-                                        <label name="Type" class="control-label">Type of Account</label>
-                                        <select name="Type" asp-items="@Html.GetEnumSelectList<AccountType>()" class="form-control"></select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label name="StartingBalance" class="control-label">Starting Balance</label>
-                                        <input name="StartingBalance" class="form-control" type="number" step="any" min="0" max="9999999.99" required />
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">Create Bank Account</button>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!--Category Create-->
-                <div class="modal fade" id="addCategoryModal">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Create Category</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form asp-controller="Categories" asp-action="Create" method="post">
-                                    <input type="hidden" name="HouseholdId" value="@Model.Id" />
-                                    <div class="form-group">
-                                        <label name="Name" class="control-label">Name</label>
-                                        <input name="Name" class="form-control" required />
-                                    </div>
-                                    <div class="form-group">
-                                        <label name="Description" class="control-label">Description</label>
-                                        <input name="Description" class="form-control" required />
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">Create A Category</button>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!--Send Invite-->
-                <div class="modal fade" id="sendInvite">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Send An Invitation</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form asp-controller="Invitations" asp-action="Create" method="post">
-                                    @Html.Hidden("HouseholdId", Model.Id)
-                                    @*<input type="hidden" name="HouseholdId" value="@Model.Id" />*@
-                                    <div class="form-group">
-                                        <label name="FirstName" class="control-label">First Name</label>
-                                        <input name="FirstName" class="form-control" required />
-                                    </div> <div class="form-group">
-                                        <label name="LastName" class="control-label">Last Name</label>
-                                        <input name="LastName" class="form-control" required />
-                                    </div>
-                                    <div class="form-group">
-                                        <label name="EmailTo" class="control-label">Recipient Email</label>
-                                        <input name="EmailTo" class="form-control" required />
-                                    </div>
-                                    <div class="form-group">
-                                        <label name="Subject" class="control-label">Subject</label>
-                                        <input name="Subject" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label name="Expires" class="control-label">Expires</label>
-                                        <input type="date" name="Expires" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label name="Body" class="control-label">Body</label>
-                                        <textarea name="Body" class="form-control" placeholder="Message to Recipient..."></textarea>
-                                    </div>
-
-
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">Send Invite To Recipient</button>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+        </div>
+        <br />
+        <!--Categories-->
+        <div class="container">
+            <div class="row mt-md-3">
+                <div class="col-md widget p-3 mr-md-3 ml-md-3">
+                    <div id="card-977263">
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" data-parent="#card-977263" href="#card-element-247619"> <h3>Categories - Add A Category Before You Make A Transaction</h3></a>
+                            </div>
+                            <div id="card-element-247619" class="collapse show">
+                                
+                                 <div class="card-body">
+                                     <div class="row">
+                                         @foreach (var category in Model.Categories)
+                                         {
+                                             <div class="col-3">
+                                                 <h5>@category.Name</h5>
+                                                 <p>@category.Description</p>
+                                                 <a class="btn btn-sm btn-primary" asp-controller="CategoryItems" asp-action="Create" asp-route-id="@category.Id"><i></i>Add Category Item</a>
+                                                 <ul>
+                                                     @foreach (var categoryItem in category.CategoryItems)
+                                                     {
+                                                         <li>
+                                                             @categoryItem.Name
+                                                         </li>
+                                                         <li>@categoryItem.TargetAmount</li>
+                                                     }
+                                                 </ul>
+                                             </div>
+                                         }
+                                     </div>
+
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <!--Transaction Type-->
+        <div class="container">
+             <div class="row mt-md-3">
+                 <div class="col-md widget p-3 mr-md-3 ml-md-3">
+                     <div id="card-671646">
+                         <div class="card">
+                             <div class="card-header">
+                                 <a class="card-link" data-toggle="collapse" data-parent="#card-671646" href="#card-element-565735"> <h3>Your Transactions</h3></a>
+                             </div>
+                             <div id="card-element-565735" class="collapse show">
+                                 <table class="table table-responsive-sm">
+                                     <thead>
+                                         <tr>
+                                             <th>Memo</th>
+                                             @*<th>Date</th>*@
+                                             <th>Member</th>
+                                             <th>Amount</th>
+                                             <th>Category</th>
+                                         </tr>
+                                     </thead>
+                                     <tbody>
+                                         @foreach (var transaction in Model.BankAccounts.SelectMany(b => b.Transactions))
+                                         {
+                                             <tr>
+                                                 <th>@transaction.Memo</th>
+                                                 @*<th>@transaction.Created</th>*@
+                                                 <th>@userId.FullName</th>
+                                                 <th>@transaction.Amount</th>
+                                                 <th>@transaction.CategoryItem.Name</th>
+                                             </tr>
+                                         }
+                                     </tbody>
+                                 </table>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <!--Modals-->
+             <!--Bank Account-->
+             <div class="modal fade" id="creatBankAccount">
+                 <div class="modal-dialog" role="document">
+                     <div class="modal-content">
+                         <div class="modal-header">
+                             <h5 class="modal-title">Bank Account</h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                 <span aria-hidden="true">&times;</span>
+                             </button>
+                         </div>
+                         <div class="modal-body">
+                             <form asp-controller="BankAccounts" asp-action="Create" method="post">
+                                 <input type="hidden" name="HouseholdId" value="@Model.Id" />
+                                 <div class="form-group">
+                                     <label name="Name" class="control-label">Bank</label>
+                                     <input name="Name" class="form-control" required />
+                                 </div>
+                                 <div class="form-group">
+                                     <label name="Type" class="control-label">Type of Account</label>
+                                     <select name="Type" asp-items="@Html.GetEnumSelectList<AccountType>()" class="form-control"></select>
+                                 </div>
+                                 <div class="form-group">
+                                     <label name="StartingBalance" class="control-label">Starting Balance</label>
+                                     <input name="StartingBalance" class="form-control" type="number" step="any" min="0" max="9999999.99" required />
+                                 </div>
+
+                                 <div class="modal-footer">
+                                     <button type="submit" class="btn btn-primary">Create Bank Account</button>
+                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                 </div>
+                             </form>
+                         </div>
+                     </div>
+
+                 </div>
+             </div>
+             <!--Category Create-->
+             <div class="modal fade" id="addCategoryModal">
+                 <div class="modal-dialog" role="document">
+                     <div class="modal-content">
+                         <div class="modal-header">
+                             <h5 class="modal-title">Create Category</h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                 <span aria-hidden="true">&times;</span>
+                             </button>
+                         </div>
+                         <div class="modal-body">
+                             <form asp-controller="Categories" asp-action="Create" method="post">
+                                 <input type="hidden" name="HouseholdId" value="@Model.Id" />
+                                 <div class="form-group">
+                                     <label name="Name" class="control-label">Name</label>
+                                     <input name="Name" class="form-control" required />
+                                 </div>
+                                 <div class="form-group">
+                                     <label name="Description" class="control-label">Description</label>
+                                     <input name="Description" class="form-control" required />
+                                 </div>
+                                 <div class="modal-footer">
+                                     <button type="submit" class="btn btn-primary">Create A Category</button>
+                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                 </div>
+                             </form>
+                         </div>
+                     </div>
+
+                 </div>
+             </div>
+             <!--Send Invite-->
+             <div class="modal fade" id="sendInvite">
+                 <div class="modal-dialog" role="document">
+                     <div class="modal-content">
+                         <div class="modal-header">
+                             <h5 class="modal-title">Send An Invitation</h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                 <span aria-hidden="true">&times;</span>
+                             </button>
+                         </div>
+                         <div class="modal-body">
+                             <form asp-controller="Invitations" asp-action="Create" method="post">
+                                 @Html.Hidden("HouseholdId", Model.Id)
+                                 @*<input type="hidden" name="HouseholdId" value="@Model.Id" />*@
+                                 <div class="form-group">
+                                     <label name="FirstName" class="control-label">First Name</label>
+                                     <input name="FirstName" class="form-control" required />
+                                 </div> <div class="form-group">
+                                     <label name="LastName" class="control-label">Last Name</label>
+                                     <input name="LastName" class="form-control" required />
+                                 </div>
+                                 <div class="form-group">
+                                     <label name="EmailTo" class="control-label">Recipient Email</label>
+                                     <input name="EmailTo" class="form-control" required />
+                                 </div>
+                                 <div class="form-group">
+                                     <label name="Subject" class="control-label">Subject</label>
+                                     <input name="Subject" class="form-control" />
+                                 </div>
+                                 <div class="form-group">
+                                     <label name="Expires" class="control-label">Expires</label>
+                                     <input type="date" name="Expires" class="form-control" />
+                                 </div>
+                                 <div class="form-group">
+                                     <label name="Body" class="control-label">Body</label>
+                                     <textarea name="Body" class="form-control" placeholder="Message to Recipient..."></textarea>
+                                 </div>
+                                 <div class="modal-footer">
+                                     <button type="submit" class="btn btn-primary">Send Invite To Recipient</button>
+                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                 </div>
+                             </form>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
     </div>
 </div>
-        @section Scripts {
+@section Scripts {
 
-            <script>
-            var Url3 = '@Url.Action("BankPieChart", "Charts")';
+      <script>
+        var Url3 = '@Url.Action("BankPieChart", "Charts")';
 
-
-
-          
-                $.post(Url3).then(function (response) {
-                    console.log(response);
-                    Morris.Donut({
-                        data: response,
-                        element: 'myDonutChart'
-                    });
+            $.post(Url3).then(function (response) {
+                console.log(response);
+                Morris.Donut({
+                    data: response,
+                    element: 'myDonutChart'
                 });
+            });
 
-
-        //$.post(url).then((response) => { console.log(response) })
-
-       //Modal button Scripts
-        //$('#editCategory').on('show.bs.modal', (e) => {
-        //    console.log(e.relatedTarget.dataset.categoryname);
-        //    $('#editCategoryName')[0].value = e.relatedTarget.dataset.categoryid;
-        //    $('#categoryNameMessage')[0].innerText = 'Are you sure you want to remove: ${e.relatedTarget.dataset.categoryname}?';
-        //})
-
-
-            </script>
-        }
+      </script>
+}

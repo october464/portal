@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Finportal.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace Finportal.Controllers
 {
@@ -14,26 +15,34 @@ namespace Finportal.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly UserManager<FPUser> _userManager;
+
         //private readonly SignInManager
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, UserManager<FPUser> userManager)
         {
             _logger = logger;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
         {
-            //if (_signInManager.IsSignedIn(User))
-            //{
-
-            //}
+            
             return View();
         }
        
-        public IActionResult Lobby()
+        public async Task<IActionResult> Lobby()
         {
+            var user = await _userManager.GetUserAsync(User);
+            if (user.HouseholdId != null)
+            {
+                return RedirectToAction("Details", "Households", new { id = user.HouseholdId });
+            }
+            else
+            {
 
-            return View();
+                return View();
+            }
         }
         public IActionResult Privacy()
         {

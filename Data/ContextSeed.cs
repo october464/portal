@@ -53,6 +53,7 @@ namespace Finportal.Data
                 throw;
             }
             #endregion
+
             #region HouseHold
             //Seed for Admin User
             defaultUser = new FPUser
@@ -83,6 +84,7 @@ namespace Finportal.Data
                 throw;
             }
             #endregion
+
             #region Member
             //Seed for Admin User
             defaultUser = new FPUser

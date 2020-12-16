@@ -16,3 +16,10 @@
 .modalButtons {
     color: #1b03a3 !important;
 }
+
+.background {
+    background-image: linear-gradient(teal, lightblue, azure, teal) !important;
+}
+.navtextcolor{
+    color:aliceblue;
+}

@@ -32,19 +32,19 @@ namespace Finportal.Controllers
             return Json(result);
         }
 
-        //public JsonResult categoryChart()
-        //{
-        //    List<CategoryChartModel> result = new List<CategoryChartModel>();
+        public JsonResult transactionChart()
+        {
+            List<TransactionChartModel> result = new List<TransactionChartModel>();
 
-        //    var categories = _context.Category.ToList();
-        //    foreach (var cat in categories)
-        //    {
-        //        result.Add(new CategoryChartModel
-        //        {
-                    
-        //        });
-        //    }
-        //    return Json(result);
-        //}
+            var categories = _context.Category.ToList();
+            foreach (var cat in categories)
+            {
+                result.Add(new TransactionChartModel
+                {
+
+                });
+            }
+            return Json(result);
+        }
     }
 }
