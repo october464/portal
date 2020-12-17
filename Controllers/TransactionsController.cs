@@ -59,7 +59,7 @@ namespace Finportal.Controllers
         {
             var householdId = (await _userManager.GetUserAsync(User)).HouseholdId;//null reference
             var myBankAccounts = _context.BankAccount.Where(b => b.HouseholdId == householdId);
-            ViewData["BankAccountId"] = new SelectList(_context.BankAccount, "Id", "Name");
+            ViewData["BankAccountId"] = new SelectList(myBankAccounts, "Id", "Name");
             ViewData["CategoryItemId"] = new SelectList(_context.CategoryItem, "Id", "Name");
             ViewData["FPUserId"] = new SelectList(_context.Users, "Id", "Name");
             return View();

@@ -25,13 +25,7 @@ namespace Finportal.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult Index()
-        {
-            
-            return View();
-        }
-       
-        public async Task<IActionResult> Lobby()
+        public async Task<IActionResult> Index()
         {
             var user = await _userManager.GetUserAsync(User);
             if (user.HouseholdId != null)
@@ -41,8 +35,16 @@ namespace Finportal.Controllers
             else
             {
 
-                return View();
+                return RedirectToAction("Lobby");
             }
+        }
+       
+        public async Task<IActionResult> Lobby()
+        {
+
+            return View();
+
+
         }
         public IActionResult Privacy()
         {

@@ -59,7 +59,6 @@
             <header class="header navbar navbar-expand-sm bg-dark">
                 <ul class="navbar-item flex-row">
                     <li class="">
-                        <i class="fas fa-wallet"></i>
                     </li>
                 </ul>
 
@@ -73,23 +72,27 @@
 
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                            <span ><i class="fas fa-wallet">   </i></span>
                         </button>
                         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                            <ul class="navbar-nav flex-grow-1">
 
-                                <li class="nav-item">
-                                    <a class="nav-link navtextcolor" asp-area="" asp-controller="Households" asp-action="Details" asp-route-id="@((await UserManager.GetUserAsync(User)).HouseholdId)">Household</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link navtextcolor" asp-area="" asp-controller="Invitations" asp-action="Create">Invitations</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link navtextcolor" asp-area="" asp-controller="BankAccounts" asp-action="Index">Bank Account</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link navtextcolor" asp-area="" asp-controller="Transactions" asp-action="Create">Transaction</a>
-                                </li>
+                            <ul class="navbar-nav flex-grow-1">
+                                @if (User.IsInRole("HOH") || User.IsInRole("Member"))
+                                {
+
+                                    <li class="nav-item">
+                                        <a class="nav-link navtextcolor" asp-area="" asp-controller="Households" asp-action="Details" asp-route-id="@((await UserManager.GetUserAsync(User)).HouseholdId)">Household</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link navtextcolor" asp-area="" asp-controller="Invitations" asp-action="Create">Invitations</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link navtextcolor" asp-area="" asp-controller="BankAccounts" asp-action="Index">Bank Account</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link navtextcolor" asp-area="" asp-controller="Transactions" asp-action="Create">Transaction</a>
+                                    </li>
+                                }
                                 <li class="nav-item dropdown">
                                     <a href="https://jonathanportfolio.netlify.app/" class="nav-link navtextcolor">Portfolio</a>
                                 </li>
