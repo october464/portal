@@ -19,6 +19,7 @@
     <Content Remove="wwwroot\css\apex\custom-apexcharts.js" />
     <Content Remove="wwwroot\css\bootstrap.min.css" />
     <Content Remove="wwwroot\css\dash_2.css" />
+    <Content Remove="wwwroot\css\main.css" />
     <Content Remove="wwwroot\css\plugins.css" />
     <Content Remove="wwwroot\css\site.css" />
     <Content Remove="wwwroot\css\structure.css" />
@@ -165,6 +166,7 @@
     <None Include="wwwroot\css\apex\js\custom-apexcharts.js" />
     <None Include="wwwroot\css\bootstrap.min.css" />
     <None Include="wwwroot\css\dash_2.css" />
+    <None Include="wwwroot\css\main.css" />
     <None Include="wwwroot\css\plugins.css" />
     <None Include="wwwroot\css\structure.css" />
     <None Include="wwwroot\css\Table\buttons.html5.min.js" />
