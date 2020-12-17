@@ -11,7 +11,7 @@ namespace Finportal.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "Purchased Item")]
+        [Display(Name = "Category Item")]
         public int? CategoryItemId { get; set; }
 
         [Display(Name = "Bank Account")]
