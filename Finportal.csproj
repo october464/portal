@@ -13,35 +13,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\css\alert.css" />
     <Content Remove="wwwroot\css\apex\apexcharts.css" />
     <Content Remove="wwwroot\css\apex\apexcharts.min.js" />
     <Content Remove="wwwroot\css\apex\custom-apexcharts.js" />
-    <Content Remove="wwwroot\css\bootstrap.min.css" />
-    <Content Remove="wwwroot\css\dash_2.css" />
-    <Content Remove="wwwroot\css\plugins.css" />
     <Content Remove="wwwroot\css\site.css" />
-    <Content Remove="wwwroot\css\structure.css" />
-    <Content Remove="wwwroot\css\Table\buttons.html5.min.js" />
-    <Content Remove="wwwroot\css\Table\buttons.print.min.js" />
-    <Content Remove="wwwroot\css\Table\custom_dt_html5.css" />
-    <Content Remove="wwwroot\css\Table\dataTables.buttons.min.js" />
-    <Content Remove="wwwroot\css\Table\datatables.css" />
-    <Content Remove="wwwroot\css\Table\datatables.js" />
-    <Content Remove="wwwroot\css\Table\dt-global_style-dark.css" />
-    <Content Remove="wwwroot\css\Table\jszip.min.js" />
-    <Content Remove="wwwroot\css\ToolTip\tooltip.css" />
-    <Content Remove="wwwroot\js\app.js" />
-    <Content Remove="wwwroot\js\bootstrap.js" />
-    <Content Remove="wwwroot\js\bootstrap.min.js" />
-    <Content Remove="wwwroot\js\custom.js" />
-    <Content Remove="wwwroot\js\dash_2.js" />
-    <Content Remove="wwwroot\js\jquery-3.1.1.min.js" />
-    <Content Remove="wwwroot\js\Loader\js\loader.js" />
-    <Content Remove="wwwroot\css\Loader\loader.css" />
-    <Content Remove="wwwroot\js\popper.min.js" />
     <Content Remove="wwwroot\js\site.js" />
-    <Content Remove="wwwroot\js\ToolTip\tooltip.js" />
     <Content Remove="wwwroot\plugins\highlight\highlight.pack.js" />
     <Content Remove="wwwroot\plugins\highlight\styles\a11y-dark.css" />
     <Content Remove="wwwroot\plugins\highlight\styles\a11y-light.css" />
@@ -135,7 +111,6 @@
     <Content Remove="wwwroot\plugins\highlight\styles\xcode.css" />
     <Content Remove="wwwroot\plugins\highlight\styles\xt256.css" />
     <Content Remove="wwwroot\plugins\highlight\styles\zenburn.css" />
-    <Content Remove="wwwroot\plugins\perfect-scrollbar\perfect-scrollbar.css" />
     <Content Remove="wwwroot\plugins\perfect-scrollbar\perfect-scrollbar.min.js" />
   </ItemGroup>
 
@@ -159,33 +134,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\css\alert.css" />
     <None Include="wwwroot\css\apex\apexcharts.css" />
     <None Include="wwwroot\css\apex\js\apexcharts.min.js" />
     <None Include="wwwroot\css\apex\js\custom-apexcharts.js" />
-    <None Include="wwwroot\css\bootstrap.min.css" />
-    <None Include="wwwroot\css\dash_2.css" />
-    <None Include="wwwroot\css\plugins.css" />
-    <None Include="wwwroot\css\structure.css" />
-    <None Include="wwwroot\css\Table\buttons.html5.min.js" />
-    <None Include="wwwroot\css\Table\buttons.print.min.js" />
-    <None Include="wwwroot\css\Table\custom_dt_html5.css" />
-    <None Include="wwwroot\css\Table\dataTables.buttons.min.js" />
-    <None Include="wwwroot\css\Table\datatables.css" />
-    <None Include="wwwroot\css\Table\datatables.js" />
-    <None Include="wwwroot\css\Table\dt-global_style-dark.css" />
-    <None Include="wwwroot\css\Table\jszip.min.js" />
-    <None Include="wwwroot\css\ToolTip\tooltip.css" />
-    <None Include="wwwroot\js\app.js" />
-    <None Include="wwwroot\js\bootstrap.js" />
-    <None Include="wwwroot\js\bootstrap.min.js" />
-    <None Include="wwwroot\js\custom.js" />
-    <None Include="wwwroot\js\dash_2.js" />
-    <None Include="wwwroot\js\jquery-3.1.1.min.js" />
-    <None Include="wwwroot\js\Loader\js\loader.js" />
-    <None Include="wwwroot\css\Loader\loader.css" />
-    <None Include="wwwroot\js\popper.min.js" />
-    <None Include="wwwroot\js\ToolTip\tooltip.js" />
     <None Include="wwwroot\plugins\highlight\highlight.pack.js" />
     <None Include="wwwroot\plugins\highlight\styles\a11y-dark.css" />
     <None Include="wwwroot\plugins\highlight\styles\a11y-light.css" />
@@ -279,12 +230,113 @@
     <None Include="wwwroot\plugins\highlight\styles\xcode.css" />
     <None Include="wwwroot\plugins\highlight\styles\xt256.css" />
     <None Include="wwwroot\plugins\highlight\styles\zenburn.css" />
-    <None Include="wwwroot\plugins\perfect-scrollbar\perfect-scrollbar.css" />
     <None Include="wwwroot\plugins\perfect-scrollbar\perfect-scrollbar.min.js" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="wwwroot\css\Loader\loader.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\css\alert.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\bootstrap.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\dash_2.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\form-2.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\Loader\loader.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\main.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\monokai-sublime.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\perfect-scrollbar.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\plugins.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\structure.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\StyleSheet.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\switches.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\Table\buttons.html5.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\Table\buttons.print.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\Table\custom_dt_html5.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\Table\dataTables.buttons.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\Table\datatables.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\Table\datatables.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\Table\dt-global_style-dark.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\Table\jszip.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\theme-checkbox-radio.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\ToolTip\tooltip.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\app.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\bootstrap.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\custom.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\dash_2.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\form-2.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\jquery-3.1.1.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\Loader\js\loader.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\popper.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\ToolTip\tooltip.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
