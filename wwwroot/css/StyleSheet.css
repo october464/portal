@@ -18,7 +18,8 @@
 }
 
 .background {
-    background-image: linear-gradient(teal, lightblue, azure, teal) !important;
+    background-image: linear-gradient(teal, lightblue, azure, teal) !important ;
+   
 }
 .navtextcolor{
     color:aliceblue;
@@ -27,5 +28,5 @@
    align-content:center !important;
 }
 .householdsjumbo {
-    background-image: linear-gradient(teal, lightblue, azure, teal) !important;
+    background-image: radial-gradient(teal, lightblue, azure, teal) !important;
 }
