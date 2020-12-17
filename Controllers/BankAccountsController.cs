@@ -28,6 +28,20 @@ namespace Finportal.Controllers
         // GET: BankAccounts
         public async Task<IActionResult> Index()
         {
+            var model = new List<BankAccount>();
+
+            var userId = _userManager.GetUserId(User);
+
+
+
+            if (User.IsInRole("HOH") && User.IsInRole("Member"))
+            {
+
+                model = _context.BankAccount
+                    .Include(b => b.CurrentBalance)
+                    .Include(b => b.FPUser).ToList();
+            }
+
 
             return View(await _context.BankAccount.ToListAsync());
         }

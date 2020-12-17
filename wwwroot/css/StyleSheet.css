@@ -23,3 +23,9 @@
 .navtextcolor{
     color:aliceblue;
 }
+.housecreate {
+   align-content:center !important;
+}
+.householdsjumbo {
+    background-image: linear-gradient(teal, lightblue, azure, teal) !important;
+}

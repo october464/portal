@@ -23,6 +23,7 @@
     <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     @*<link href="~/css/plugins.css" rel="stylesheet" type="text/css" />*@
     <link href="~/css/structure.css" rel="stylesheet" type="text/css" class="structure" />
+    <link href="~/css/form-2.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="~/css/dash_2.css" rel="stylesheet" type="text/css" class="dashboard-sales" />
@@ -125,41 +126,45 @@
             </div>
         </div>
     </div>
+    @if (User.Identity.IsAuthenticated)
+    {
 
-    <footer class="bg-dark py-4">
-        <div class="container">
-            <div class="row py-2">
-                <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
-                    <p class="small text-muted text-uppercase mb-0">&copy; Jonathan Green - all rights reserved</p>
-                </div>
-                <div class="col-lg-6 text-center mb-2 mb-lg-0 ">
-                    <ul class="list-inline text-white small mb-0 footerIconGrowHover footerIconGrow">
-                        <li class="list-inline-item">
-                            <a class="reset-anchor" target="_blank" href="https://github.com/october464">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </li>
+        <footer class="bg-dark py-4">
+            <div class="container">
+                <div class="row py-2">
+                    <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                        <p class="small text-muted text-uppercase mb-0">&copy; Jonathan Green - all rights reserved</p>
+                    </div>
+                    <div class="col-lg-6 text-center mb-2 mb-lg-0 ">
+                        <ul class="list-inline text-white small mb-0 footerIconGrowHover footerIconGrow">
+                            <li class="list-inline-item">
+                                <a class="reset-anchor" target="_blank" href="https://github.com/october464">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </li>
 
-                        <li class="list-inline-item footerIconGrowHover footerIconGrow">
-                            <a class="reset-anchor" target="_blank" href="https://www.linkedin.com/in/jonathan-green-854723164/">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </li>
+                            <li class="list-inline-item footerIconGrowHover footerIconGrow">
+                                <a class="reset-anchor" target="_blank" href="https://www.linkedin.com/in/jonathan-green-854723164/">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </li>
 
-                        <li class="list-inline-item footerIconGrowHover footerIconGrow">
-                            <a class="reset-anchor" target="_blank" href="https://twitter.com/Jonatha20659564">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                    </ul>
+                            <li class="list-inline-item footerIconGrowHover footerIconGrow">
+                                <a class="reset-anchor" target="_blank" href="https://twitter.com/Jonatha20659564">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    }
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="~/js/jquery-3.1.1.min.js"></script>
     <script src="~/js/popper.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/form-2.js"></script>
 
     @*<script src="~/js/app.js"></script>*@
     @*<script>

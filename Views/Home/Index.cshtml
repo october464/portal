@@ -2,19 +2,16 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+
+<div class="container">
+
+    <div class="jumbotron card block col-md">
+        <div class="col-md" style="text-align:center;">
+            <h1 class="display-4">Welcome To Save 'N Money</h1>
+        </div>
+    </div>
 </div>
-
-
-@*for leave button
-@if (User.IsInRole(nameof(PortalRole.Member)) || User.IsInRole(nameof(PortalRole.HOH)) && Model.Members.Count == 1)
-{
-    <li>
-        <a class="nav-link btn btn-sm btn-danger" asp-action="Leave">Leave Houosehold</a>
-    </li>
-}*@
 
 @section scripts{
    <script>
