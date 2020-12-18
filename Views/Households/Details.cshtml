@@ -142,50 +142,46 @@
     </div>
     <br />
     <!--House Members-->
-    <div class="container">
-        <div class="row mt-md-3">
-            <div class="col widget p-3">
-                <div id="card-034725">
-                    <div class="card border-0">
-                        <div class="card-header">
-                            <a class="card-link" data-toggle="collapse" data-parent="#card-034725" href="#card-element-528956"> <h3>Members Of The House</h3></a>
-                        </div>
-                        <div id="card-element-528956" class="collapse show">
-                            <div class="row">
-                                <div class="shadow col-md widget p-3 m-md-3">
-                                    <table class="table table-responsive-sm">
-                                        <thead>
-                                            <tr>
-                                                <th>First Name</th>
-                                                <th>Role</th>
 
+    <div class="row">
+        <div class="col-sm-6 widget p-3">
+            <div id="card-034725">
+                <div class="card border-0">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" data-parent="#card-034725" href="#card-element-528956"> <h3>Members Of The House</h3></a>
+                    </div>
+                    <div id="card-element-528956" class="collapse show">
+                        <div class="row">
+                            <div class="shadow col-md widget p-3 m-md-3">
+                                <table class="table table-responsive-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>First Name</th>
+                                            <th>Role</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var user in Model.Members)
+                                        {
+                                            <tr>
+                                                <td>@user.FirstName</td>
+                                                <td>
+                                                    @UserManager.GetRolesAsync(user).Result.FirstOrDefault()
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach (var user in Model.Members)
-                                            {
-                                                <tr>
-                                                    <td>@user.FirstName</td>
-                                                    <td>
-                                                        @UserManager.GetRolesAsync(user).Result.FirstOrDefault()
-                                                    </td>
-                                                </tr>
-                                            }
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        }
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <br />
-    <!--Categories-->
-    <div class="container">
+
         <div class="row mt-md-3">
-            <div class="col-md widget p-3">
+            <div class="col-sm-6 widget p-3">
                 <div id="card-977263">
                     <div class="card">
                         <div class="card-header">
@@ -204,10 +200,10 @@
                                             <ul>
                                                 @foreach (var categoryItem in category.CategoryItems)
                                                 {
-                                                <li>
-                                                    @categoryItem.Name - @categoryItem.TargetAmount
-                                                </li>
-                                                    
+                                                    <li>
+                                                        @categoryItem.Name - @categoryItem.TargetAmount
+                                                    </li>
+
                                                 }
                                             </ul>
                                         </div>
@@ -222,6 +218,8 @@
         </div>
     </div>
     <br />
+    <!--Categories-->
+    <br />
     <!--Transaction Type-->
     <div class="container">
         <div class="row mt-md-3">
@@ -235,7 +233,7 @@
                             <table class="table table-responsive-sm">
                                 <thead>
                                     <tr>
-                                        
+
                                         <th>Member</th>
                                         <th>Amount</th>
                                         <th>Category</th>
@@ -247,7 +245,7 @@
                                     @foreach (var transaction in Model.BankAccounts.SelectMany(b => b.Transactions))
                                     {
                                         <tr>
-                                          
+
                                             <th>@userId.FullName</th>
                                             <th>@transaction.Amount</th>
                                             <th>@transaction.CategoryItem.Name</th>
